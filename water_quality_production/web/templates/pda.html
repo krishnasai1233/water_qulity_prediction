@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WQP | Data Analysis</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/pda.css" />
+    <link rel="shortcut icon" href="../static/logo.jpg" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="../static/logo.jpg"
+            alt="Logo"
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top rounded-circle"
+          />
+          WQP
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">water parameters</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('pda') }}"
+                >Preliminary Data Analysis</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h2 id="main-heading">Preliminary Data Analysis</h2>
+
+    <div class="card text-bg-dark mb-3 container-sm">
+      <div class="card-body">
+        <h5 class="card-title with-border-bottom">Data Description</h5>
+        <p class="card-text">
+          The   dataset comprises various parameters, including pH, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic_carbon, Trihalomethanes, Turbidity, Potability, and a timestamp for the date of measurement. The dataset can unveil insights into the overall quality of the water, identifying patterns or changes over time. Monitoring the temporal aspects using the date information allows for trend analysis and understanding potential correlations between different parameters. The inclusion of Potability as a binary label facilitates classification tasks, distinguishing between water suitable for consumption and non-potable water. This comprehensive dataset provides a valuable resource for assessing and managing water quality.
+
+        </p>
+      </div>
+    </div>
+
+    <div class="attacks">
+      <div class="card border-black mb-3 container-sm">
+        <img
+          src="../static/parameters.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center fw-bold mb-2">
+            parameters listed in water quality dataset
+          </h5>
+          <p class="card-text">
+            The parameters listed in water quality dataset are often referred to as water quality indicators or parameters. Each of these parameters provides information about specific characteristics of the water being measured. Here's a brief overview of what each parameter represents:
+          </p>
+          <p>
+            <strong>pH:</strong> Measures the acidity or alkalinity of the water.
+          </p>
+          <p>
+            <strong>Hardness:</strong> Indicates the concentration of calcium and magnesium ions in the water.
+          </p>
+          <p>
+            <strong>Solids:</strong> Represents the total dissolved solids (TDS) in the water, including minerals, salts, and organic matter.
+          </p>
+          <p>
+            <strong>Chloramines:</strong> Result from the combination of chlorine and ammonia, commonly used in water treatment for disinfection.
+          </p>
+          <p>
+            <strong>Chloramines:</strong> Result from the combination of chlorine and ammonia, commonly used in water treatment for disinfection.
+          </p>
+          <p>
+            <strong>Sulfate: </strong>A salt or ester of sulfuric acid.
+          </p>
+          <p>
+            <strong>Organic_carbon:</strong> Indicates the presence of carbon-containing compounds in the water.
+          </p>
+          <p>
+            <strong>Trihalomethanes:</strong> Chemical compounds that may form when chlorine reacts with organic matter in water.
+          </p>
+          <p>
+            <strong>Turbidity:</strong> Measures the cloudiness or haziness of a fluid caused by particles.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="protocols">
+      <div class="card border-black mb-3 container-sm">
+        <img
+          src="../static/potability.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center fw-bold mb-2">
+            Potability Assessment
+          </h5>
+          <p class="card-text">
+            
+          </p>
+          <p>
+            <strong>Potability</strong> refers to the suitability of water for human consumption or use. In the context of your water quality dataset, the "Potability" parameter is a binary indicator that classifies whether the water is considered safe and suitable for drinking (potable) or not. It is a crucial aspect of water quality assessment, as it directly relates to the health and well-being of individuals who might consume the water..
+          </p>
+          <p>
+            <strong></strong>A Potable value of 1 typically indicates that the water is considered safe for drinking, while a value of 0 suggests that the water may not meet the necessary standards for human consumption. The determination of potability is often based on regulatory guidelines and health standards set by authorities.
+          </p>
+          <p>
+            <strong></strong>Analyzing the potability of water is essential for ensuring public health and preventing waterborne diseases. Factors such as pH, chemical concentrations, microbial contamination, and other water quality parameters are considered in assessing potability. Regular monitoring and testing of water sources are essential to maintain and improve the overall quality of drinking water and to address any potential health risks associated with water consumption.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mlalgo">
+      <div class="card border-black mb-3 container-sm">
+        <img
+          src="../static/accuracy.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center fw-bold mb-2">
+            Model Accuracy  scores
+          </h5>
+          <p class="card-text">
+            The score is a machine learning evaluation metric that measures a
+            model's accuracy. It combines the precision and recall scores of a
+            model. The accuracy metric computes how many times a model made a
+            correct prediction across the entire dataset. 4 Models are used in
+            this prediction and a brief description about these models is given
+            below:
+          </p>
+          <p>
+            <strong>Logistic Regression</strong> is a classification algorithm
+            used for binary and multi-class classification problems. It models
+            the probability that a given instance belongs to a particular class.
+            Logistic Regression applies the logistic function to a linear
+            combination of input features, mapping the result to a probability
+            between 0 and 1.
+          </p>
+          <p>
+            <strong>Random Forest</strong> is an ensemble learning algorithm used for
+            both classification and regression tasks. It operates by constructing a
+            multitude of decision trees during training and outputs the class that is the
+            mode of the classes (classification) or the mean prediction (regression) of
+            the individual trees. Random Forest is known for its robustness and ability to
+            handle complex relationships in data. It introduces randomness by training
+            each tree on a random subset of the data and features, which helps reduce
+            overfitting and improves generalization performance.
+          </p>
+          <p>
+            <strong>Logistic Regression</strong> is a classification algorithm
+            used for binary and multi-class classification problems. It models
+            the probability that a given instance belongs to a particular class.
+            Logistic Regression applies the logistic function to a linear
+            combination of input features, mapping the result to a probability
+            between 0 and 1.
+          </p>
+          <p>
+            <strong>k-Nearest Neighbors</strong> is a simple and intuitive
+            classification algorithm. It classifies a data point based on the
+            majority class of its k nearest neighbors in the feature space. The
+            choice of the parameter k determines the number of neighbors
+            considered for classification.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <footer class="footer text-center">
+      <h6 class="footer__title">~ - MINOR PROJECT - ~</h6>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

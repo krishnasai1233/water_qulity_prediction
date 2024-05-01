@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WQP</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="shortcut icon" href="../static/logo.jpg" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="../static/logo.jpg"
+            alt="Logo"
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top rounded-circle"
+          />
+          WQP
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Water Parameters</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('pda') }}"
+                >Preliminary Data Analysis</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container custom-border">
+      <form method="POST" action="{{ url_for('results') }}">
+        <div class="container mb-4 text-center">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <label for="Potability" class="form-label"
+                >input water parameters by filling in the values for the following water features
+              </label>
+              <select class="form-select" id="Potability" name="Potability">
+                <option value="" disabled selected>
+                  Select the preference (pre-defined)
+                </option>
+                <option value="Not_Suitable">Not Suitable</option>
+                <option value="Suitable">Suitable</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="ph" class="form-label">ph</label>
+              <input
+                type="number"
+                class="form-control"
+                id="ph"
+                name="ph"
+                placeholder="Ph value of the water"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Hardness" class="form-label">Hardness</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Hardness"
+                name="Hardness"
+                placeholder="Hardness of water"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Chloramines" class="form-label">chlorine</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Chloramines"
+                name="Chloramines"
+                placeholder="chlorine present in water"
+              />
+            </div>
+          </div>
+          <!-- Second Column -->
+          <div class="col-md-6">
+            
+            <div class="mb-3">
+              <label for="Solids" class="form-label">Solids</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Solids"
+                name="Solids"
+                placeholder="Sulfate present in water"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Sulfate" class="form-label">Sulfate</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Sulfate"
+                name="Sulfate"
+                placeholder="Sulfate present in water"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Organic_carbon" class="form-label">Organic_carbon</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Organic_carbon"
+                name="Organic_carbon"
+                placeholder="carbon present in water"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="mb-3 text-center">
+          <button type="reset" class="btn btn-warning me-4">Reset Form</button>
+          <button type="submit" class="btn btn-success ms-4">Submit</button>
+        </div>
+      </form>
+    </div>
+    <footer class="footer text-center">
+      <h6 class="footer__title">~- MINOR PROJECT - ~</h6>
+    </footer>
+    <script>
+      // Event listener for the attackType dropdown
+      document
+        .getElementById("Potability")
+        .addEventListener("change", function () {
+          // Get the selected value
+          var selectedAttack = this.value;
+
+          // Update values based on the selected attack type
+          switch (selectedAttack) {
+            case "Not_Suitable":
+              document.getElementById("ph").value = 10;
+              document.getElementById("Hardness").value = 121;
+              document.getElementById("Chloramines").value = 5;
+              document.getElementById("Solids").value = 25000;
+              document.getElementById("Sulfate").value = 251;
+              document.getElementById("Organic_carbon").value = 3;
+              break;
+            case "Suitable":
+              document.getElementById("ph").value = 7;
+              document.getElementById("Hardness").value = 120;
+              document.getElementById("Chloramines").value = 4;
+              document.getElementById("Solids").value = 20000;
+              document.getElementById("Sulfate").value = 250;
+              document.getElementById("Organic_carbon").value = 2;
+            default:
+              // Handle default case
+              break;
+          }
+        });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
